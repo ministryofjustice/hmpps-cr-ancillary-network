@@ -7,6 +7,7 @@
 **/tmp_config/*
 ./env_configs/
 env_configs/
+env_configs
 
 .DS_Store
 .AppleDouble
