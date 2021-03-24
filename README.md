@@ -17,10 +17,10 @@ env_configs
 ├── common
 │   ├── common.properties
 │   └── common.tfvars
-└── delius-core-dev
-    ├── delius-core-dev.credentials.yml
-    ├── delius-core-dev.properties
-    └── delius-core-dev.tfvars
+└── cr-jira-dev
+    ├── cr-jira-dev.credentials.yml
+    ├── cr-jira-dev.properties
+    └── cr-jira-dev.tfvars
 ```
 
 An example method of obtaining the configs would be:
@@ -57,8 +57,7 @@ then
     ├── internetgateway
     │   └── natgateway
     │       └── routes
-    └── security-groups
-        └── shared-monitoring
+    └── s3
 ```
 
 ## Network
@@ -68,24 +67,24 @@ The subnets are not allocated linearly. The private subnets have much more addre
 The allocation is as per this example for a /20 mask
 
 ```
-10.162.0.0/20
-
-private az1 10.162.0.0/22
-private az2 10.162.4.0/22
-private az3 10.162.8.0/22
-
-db az1 10.162.12.0/24
-db az2 10.162.13.0/24
-db az3 10.162.14.0/25
-
-public az1 10.162.14.128/25
-public az2 10.162.15.0/25
-public az3 10.162.15.128/25
+10.163.16.0/20
+public
+    az1 = 10.163.30.128/25
+    az2 = 10.163.31.0/25
+    az3 = 10.163.31.128/25
+private
+    az1 = 10.163.16.0/22
+    az2 = 10.163.20.0/22
+    az3 = 10.163.24.0/22
+db
+    az1 = 10.163.28.0/24
+    az2 = 10.163.29.0/24
+    az3 = 10.163.30.0/25
 ```
 
 | Subnet address |	Netmask	| Range of addresses |	Useable IPs	| Hosts	|
 |---|---|---|---|---|
-|10.162.0.0/22 |	255.255.252.0	| 10.162.0.0 - 10.162.3.255	| 10.162.0.1 - 10.162.3.254 |	1022 |
+|10.163.16.0/22 |	255.255.252.0	| 10.163.16.0 - 10.162.3.255	| 10.163.16.1 - 10.162.3.254 |	1022 |
 |10.162.4.0/22 |	255.255.252.0 |	10.162.4.0 - 10.162.7.255	| 10.162.4.1 - 10.162.7.254 |	1022 |
 |10.162.8.0/22 |	255.255.252.0	| 10.162.8.0 - 10.162.11.255 | 10.162.8.1 - 10.162.11.254 |	1022 |
 |10.162.12.0/24 |	255.255.255.0	| 10.162.12.0 - 10.162.12.255	| 10.162.12.1 - 10.162.12.254	| 254 |
