@@ -1,6 +1,6 @@
 locals {
-  remove_prod = replace("${var.environment_type}", "-prod", "")
-  subdomain = replace("${local.remove_prod}", "-", ".")
+  remove_prod             = replace("${var.environment_type}", "-prod", "")
+  subdomain               = replace("${local.remove_prod}", "-", ".")
   route53_internal_domain = "${local.subdomain}.${var.project_name}.internal"
   # public_domain           = "${var.subdomain}.${var.route53_domain_private}"
   strategic_public_domain = "${local.subdomain}.${var.project_name}.probation.${var.public_dns_parent_zone}"
@@ -28,7 +28,7 @@ resource "aws_route53_zone" "internal_zone" {
 
 # Strategic *.probation.service.justice.gov.uk public domain
 resource "aws_route53_zone" "strategic_zone" {
-  name  = local.strategic_public_domain
+  name = local.strategic_public_domain
 }
 
 # # Delegation record so we can access the strategic route53 zone from prod
