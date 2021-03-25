@@ -26,4 +26,3 @@ module "create_parameter_ssh_key" {
   value          = module.ssh_key.public_key_openssh
   tags           = var.tags
 }
-

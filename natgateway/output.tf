@@ -33,4 +33,3 @@ output "natgateway_common-nat-private-ip-az2" {
 output "natgateway_common-nat-private-ip-az3" {
   value = module.common-nat-az3.nat_private_ip
 }
-

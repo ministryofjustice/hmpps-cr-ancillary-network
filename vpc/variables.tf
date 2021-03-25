@@ -97,4 +97,3 @@ variable "strategic_parent_zone_delegation_role" {
 variable "strategic_parent_zone_id" {
   description = "Parent R53 Zone ID for strategic domain (probation.service.justice.gov.uk)"
 }
-

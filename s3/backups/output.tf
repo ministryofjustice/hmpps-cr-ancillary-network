@@ -7,4 +7,3 @@ output "s3_backups" {
     region = var.region
   }
 }
-

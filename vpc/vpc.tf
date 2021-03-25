@@ -6,4 +6,3 @@ module "vpc" {
   route53_domain_private = var.route53_domain_private
   tags                   = var.tags
 }
-

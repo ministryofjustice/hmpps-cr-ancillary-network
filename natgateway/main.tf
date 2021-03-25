@@ -24,8 +24,7 @@ module "common-nat-az2" {
 
 module "common-nat-az3" {
   source = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/natgateway?ref=terraform-0.12"
-  az     = "${var.environment_name}-az3"
+  az = "${var.environment_name}-az3"
   subnet = data.terraform_remote_state.vpc.outputs.vpc_public-subnet-az3
-  tags   = var.tags
+  tags = var.tags
 }
-

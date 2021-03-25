@@ -92,4 +92,3 @@ module "route-db-to-nat" {
   destination_cidr_block = local.destination_cidr_blocks
   nat_gateway_id         = local.nat_gateway_ids
 }
-
