@@ -53,7 +53,6 @@ Start with VPC
 then
 ```
 └── vpc
-    ├── peering-connection
     ├── internetgateway
     │   └── natgateway
     │       └── routes
