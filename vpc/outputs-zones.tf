@@ -42,3 +42,10 @@ output "strategic_public_zone_name" {
 output "strategic_public_ssl_arn" {
   value = aws_acm_certificate.cert.*.arn
 }
+
+output "zone" {
+  value = {
+    private = aws_route53_zone.internal_zone,
+    public  = aws_route53_zone.strategic_zone
+  }
+}
