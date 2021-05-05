@@ -13,6 +13,13 @@ resource "aws_route53_zone" "internal_zone" {
   vpc {
     vpc_id = module.vpc.vpc_id
   }
+  tags = merge(
+    var.tags,
+    {
+      "Name" = local.route53_internal_domain,
+      "Type" = "internal"
+    },
+  )
 }
 
 # Existing *.delius.probation.hmpps.dsd.io public domain
@@ -29,6 +36,13 @@ resource "aws_route53_zone" "internal_zone" {
 # Strategic *.probation.service.justice.gov.uk public domain
 resource "aws_route53_zone" "strategic_zone" {
   name = local.strategic_public_domain
+  tags = merge(
+    var.tags,
+    {
+      "Name" = local.strategic_public_domain,
+      "Type" = "public"
+    },
+  )
 }
 
 # # Delegation record so we can access the strategic route53 zone from prod
