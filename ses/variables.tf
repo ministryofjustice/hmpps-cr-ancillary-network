@@ -17,11 +17,6 @@ variable "project_name" {
   description = "project name"
 }
 
-variable "ses_region" {
-  description = "Region to deploy SES domain"
-  default     = "eu-west-1"
-}
-
 variable "ses_smtp_port" {
   description = "SMTP Endpoint Point"
   default     = 465
