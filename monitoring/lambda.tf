@@ -7,11 +7,11 @@ resource "aws_lambda_function" "notify_slack_alarm" {
   source_code_hash = filebase64sha256(data.archive_file.alarm_lambda_handler_zip.output_path)
   environment {
     variables = {
-      ENABLED                 = tostring(var.delius_alarms_config.enabled)
+      ENABLED                 = tostring(local.alarms_config.enabled)
       REGION                  = var.region
       ENVIRONMENT_NAME        = var.environment_name
-      QUIET_PERIOD_START_HOUR = tostring(var.delius_alarms_config.quiet_hours[0])
-      QUIET_PERIOD_END_HOUR   = tostring(var.delius_alarms_config.quiet_hours[1])
+      QUIET_PERIOD_START_HOUR = tostring(local.alarms_config.quiet_hours[0])
+      QUIET_PERIOD_END_HOUR   = tostring(local.alarms_config.quiet_hours[1])
       SLACK_CHANNEL           = local.slack_channel_name
       SLACK_TOKEN             = "/${var.environment_name}/slack/token"
     }
