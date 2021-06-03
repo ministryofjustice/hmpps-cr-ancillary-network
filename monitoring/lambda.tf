@@ -12,8 +12,7 @@ resource "aws_lambda_function" "notify_slack_alarm" {
       ENVIRONMENT_NAME        = var.environment_name
       QUIET_PERIOD_START_HOUR = tostring(var.delius_alarms_config.quiet_hours[0])
       QUIET_PERIOD_END_HOUR   = tostring(var.delius_alarms_config.quiet_hours[1])
-      # SLACK_CHANNEL           = var.environment_name == "delius-prod" ? "delius-alerts-deliuscore-production" : "delius-alerts-deliuscore-nonprod"
-      # "cr-alerts-jira-nonprod"
+      SLACK_CHANNEL           = local.slack_channel_name
       SLACK_TOKEN             = "/${var.environment_name}/slack/token"
     }
   }
