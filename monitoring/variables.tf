@@ -10,7 +10,15 @@ variable "environment_name" {
   description = "Environment name to be used as a unique identifier for resources - eg. cr-jitbit-dev"
 }
 
+variable "environment_type" {
+  description = "Environment type to be used as a unique identifier for resources - eg. jitbit-dev"
+}
+
 variable "tags" {
   description = "Tags to be applied to resources"
   type        = map(string)
+}
+
+variable "project_name" {
+  description = "Project name to be used as a unique identifier for resources - eg. cr"
 }

@@ -5,7 +5,7 @@ locals {
   tags               = var.tags
 
   alarms_config   = {
-      enable      = false
+      enabled     = false
       quiet_hours = [19, 7]
     }
 }

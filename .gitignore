@@ -72,3 +72,4 @@ utils
 .env
 docker-run.sh
 docker-compose.yml
+run.sh
