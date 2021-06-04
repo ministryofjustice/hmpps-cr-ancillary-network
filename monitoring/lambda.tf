@@ -18,6 +18,11 @@ resource "aws_lambda_function" "notify_slack_alarm" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "notify_slack_alarm" {
+  name              = "/aws/lambda/${local.lambda_name_alarm}"
+  retention_in_days = 14
+}
+
 resource "aws_lambda_permission" "sns_alarm" {
   statement_id  = "AllowExecutionFromSNS"
   action        = "lambda:InvokeFunction"

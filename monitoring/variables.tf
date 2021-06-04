@@ -22,3 +22,14 @@ variable "tags" {
 variable "project_name" {
   description = "Project name to be used as a unique identifier for resources - eg. cr"
 }
+
+variable "alarms_config" {
+  type = object({
+    enabled     = bool
+    quiet_hours = tuple([number, number])
+  })
+  default = {
+    enabled     = false
+    quiet_hours = [23, 6]
+  }
+}
