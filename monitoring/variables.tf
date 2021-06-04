@@ -29,7 +29,7 @@ variable "alarms_config" {
     quiet_hours = tuple([number, number])
   })
   default = {
-    enabled     = false
+    enabled     = true
     quiet_hours = [23, 6]
   }
 }
