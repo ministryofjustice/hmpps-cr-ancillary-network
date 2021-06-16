@@ -11,12 +11,20 @@ resource "aws_security_group" "ce_sg" {
       "Type" = "Private"
     },
   )
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+
+  lifecycle {
+    create_before_destroy = true
   }
+}
+
+resource "aws_security_group_rule" "egress_internet" {
+  security_group_id        = aws_security_group.ce_sg.id
+  from_port                = 0
+  to_port                  = 0
+  protocol                 = "-1"
+  type                     = "egress"
+  description              = "connect to container registry and endpoint"
+  cidr_blocks              = ["0.0.0.0/0"]
 }
 
 resource "aws_batch_compute_environment" "batch_ce" {
