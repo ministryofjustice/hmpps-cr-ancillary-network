@@ -70,8 +70,8 @@ variable "chaosmonkey_job_retries" {
 
 variable "chaosmonkey_job_envvars" {
   description = "List of aps of Environment Variables to pass to Chaosmonkey batch job"
-  type        = list(object({
-    name = string
+  type = list(object({
+    name  = string
     value = string
   }))
 }
