@@ -39,7 +39,7 @@ data "aws_iam_policy_document" "lambda_policy_document" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name   = "${var.common["common_name"]}-mgmt-cwlogs-retention-role"
+  name   = "${var.environment_name}-mgmt-cwlogs-retention-role"
   policy = data.aws_iam_policy_document.lambda_policy_document.json
 }
 
