@@ -9,7 +9,7 @@ def lambda_handler(event, context):
   Method invoked by AWS to start the function
   '''
   token = None
-  defaultRetentionInDays = os.environ['default_log_retention_days']
+  defaultRetentionInDays = int(os.environ['default_log_retention_days'])
 
   paginator = cwl.get_paginator('describe_log_groups')
 
