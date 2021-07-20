@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_event_rule" "mgmt" {
   name                = "${var.environment_name}-mgmt-cwlogs-retention"
-  description         = "Fires every one minutes"
+  description         = "Fires once in 7 Days"
   schedule_expression = "rate(7 days)"
 }
 
