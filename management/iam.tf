@@ -28,12 +28,12 @@ data "aws_iam_policy_document" "lambda_policy_document" {
     ]
   }
   statement {
-    sid       = "Loadbalancer"
+    sid       = "Cloudwatch"
     effect    = "Allow"
     resources = ["*"]
     actions   = [
-      "elasticloadbalancing:Describe*",
-      "elasticloadbalancing:ModifyListener"
+      "logs:DescribeLogGroups",
+      "logs:PutRetentionPolicy"
     ]
   }
 }
