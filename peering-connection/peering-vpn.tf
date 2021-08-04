@@ -68,7 +68,7 @@ module "route-to-vpn-vpc-public-cidr-az2" {
     data.terraform_remote_state.vpc.outputs.vpc_db-routetable-az3,
   ]
 
-  destination_cidr_block = data.terraform_remote_state.vpn.outputs.vpc.subnet_cidrs.vpn-public-az2
+  destination_cidr_block = data.terraform_remote_state.vpn.outputs.subnet_cidrs.vpn-public-az2
   vpc_peer_id            = aws_vpc_peering_connection.peering-vpn-vpc.id
   create                 = true
 }
@@ -88,7 +88,7 @@ module "route-to-vpn-vpc-public-cidr-az3" {
     data.terraform_remote_state.vpc.outputs.vpc_db-routetable-az3,
   ]
 
-  destination_cidr_block = data.terraform_remote_state.vpn.outputs.vpc.subnet_cidrs.vpn-public-az3
+  destination_cidr_block = data.terraform_remote_state.vpn.outputs.subnet_cidrs.vpn-public-az3
   vpc_peer_id            = aws_vpc_peering_connection.peering-vpn-vpc.id
   create                 = true
 }
@@ -110,7 +110,7 @@ module "route-to-vpn-vpc-private-cidr-az1" {
     data.terraform_remote_state.vpc.outputs.vpc_db-routetable-az3,
   ]
 
-  destination_cidr_block = data.terraform_remote_state.vpn.outputs.vpc.subnet_cidrs.vpn-private-az1
+  destination_cidr_block = data.terraform_remote_state.vpn.outputs.subnet_cidrs.vpn-private-az1
   vpc_peer_id            = aws_vpc_peering_connection.peering-vpn-vpc.id
   create                 = true
 }
@@ -130,7 +130,7 @@ module "route-to-vpn-vpc-private-cidr-az2" {
     data.terraform_remote_state.vpc.outputs.vpc_db-routetable-az3,
   ]
 
-  destination_cidr_block = data.terraform_remote_state.vpn.outputs.vpc.subnet_cidrs.vpn-private-az2
+  destination_cidr_block = data.terraform_remote_state.vpn.outputs.subnet_cidrs.vpn-private-az2
   vpc_peer_id            = aws_vpc_peering_connection.peering-vpn-vpc.id
   create                 = true
 }
@@ -150,7 +150,7 @@ module "route-to-vpn-vpc-private-cidr-az3" {
     data.terraform_remote_state.vpc.outputs.vpc_db-routetable-az3,
   ]
 
-  destination_cidr_block = data.terraform_remote_state.vpn.outputs.vpc.subnet_cidrs.vpn-private-az3
+  destination_cidr_block = data.terraform_remote_state.vpn.outputs.subnet_cidrs.vpn-private-az3
   vpc_peer_id            = aws_vpc_peering_connection.peering-vpn-vpc.id
   create                 = true
 }
