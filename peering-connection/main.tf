@@ -44,3 +44,17 @@ data "terraform_remote_state" "eng_dev_remote_vpc" {
     role_arn = var.eng_role_arn
   }
 }
+
+#-------------------------------------------------------------
+### Getting vpn info
+#-------------------------------------------------------------
+data "terraform_remote_state" "vpn" {
+  backend = "s3"
+
+  config = {
+    bucket   = var.bastion_remote_state_bucket_name
+    key      = "vpn-vpc/terraform.tfstate"
+    region   = var.region
+    role_arn = var.bastion_role_arn
+  }
+}
