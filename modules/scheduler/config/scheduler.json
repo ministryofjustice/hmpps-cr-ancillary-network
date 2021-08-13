@@ -1,0 +1,19 @@
+{
+    "name": {
+      "S": "office-hours"
+    },
+    "type": {
+      "S": "schedule"
+    },
+    "timezone": {
+      "S": "Europe/London"
+    },
+    "description": {
+      "S": "Office hours"
+    },
+    "periods": {
+      "SS": [
+        "office-hours"
+      ]
+    }
+}

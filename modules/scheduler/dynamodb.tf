@@ -79,60 +79,26 @@ resource "aws_dynamodb_table" "maintenance_window_table" {
   tags = var.common["tags"]
 }
 
-/*
-resource "aws_dynamodb_table_item" "config-schedule" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/scheduler.json")
+# EU London Time Zone - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+resource "aws_dynamodb_table_item" "global_config" {
+  table_name = aws_dynamodb_table.config_table.name
+  hash_key   = aws_dynamodb_table.config_table.hash_key
+  range_key  = aws_dynamodb_table.config_table.range_key
+  item = file("./config/scheduler.json")
 }
 
-resource "aws_dynamodb_table_item" "period-weekdays" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/period-weekdays.json")
+# Scheduler time 7:00 - 18:00
+resource "aws_dynamodb_table_item" "period" {
+  table_name = aws_dynamodb_table.config_table.name
+  hash_key   = aws_dynamodb_table.config_table.hash_key
+  range_key  = aws_dynamodb_table.config_table.range_key
+  item = file("./config/period.json")
 }
 
-resource "aws_dynamodb_table_item" "period-weekend" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/period-weekend.json")
+# Tag "Key=Schedule,Value=office-hours"
+resource "aws_dynamodb_table_item" "schedule" {
+  table_name = aws_dynamodb_table.config_table.name
+  hash_key   = aws_dynamodb_table.config_table.hash_key
+  range_key  = aws_dynamodb_table.config_table.range_key
+  item = file("./config/scheduler.json")
 }
-
-resource "aws_dynamodb_table_item" "period-stoponly" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/period-alwaysstop.json")
-}
-
-resource "aws_dynamodb_table_item" "schedule-sydney" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/schedule-sydney.json")
-}
-
-resource "aws_dynamodb_table_item" "schedule-brisbane" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/schedule-brisbane.json")
-}
-
-resource "aws_dynamodb_table_item" "schedule-sydney-so" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/schedule-sydney-stop.json")
-}
-
-resource "aws_dynamodb_table_item" "schedule-brisbane-so" {
-  table_name = aws_dynamodb_table.config-table.name
-  hash_key   = aws_dynamodb_table.config-table.hash_key
-  range_key  = aws_dynamodb_table.config-table.range_key
-  item = file("./dynamodb-json/schedule-brisbane-stop.json")
-}
-*/
