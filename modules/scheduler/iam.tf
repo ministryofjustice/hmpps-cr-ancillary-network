@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "scheduler_role" {
       ]
       effect =  "Allow"
       resources = [
-        aws_dynamodb_table.state-table.arn
+        aws_dynamodb_table.state_table.arn
       ]
   }
 
@@ -39,8 +39,8 @@ data "aws_iam_policy_document" "scheduler_role" {
       ]
       effect =  "Allow"
       resources = [
-        aws_dynamodb_table.config-table.arn,
-        aws_dynamodb_table.maintenance-window-table.arn
+        aws_dynamodb_table.config_table.arn,
+        aws_dynamodb_table.maintenance_window_table.arn
       ]
   }
 
@@ -57,8 +57,8 @@ data "aws_iam_policy_document" "scheduler_role" {
 }
 
 resource "aws_iam_role" "scheduler_role" {
-  name = "${var.common["environment_name"]}_SchedulerRole"
-  assume_role_policy = file("./iam/trust.json")
+  name = "${var.common["environment_name"]}_AWS_Scheduler_Role"
+  assume_role_policy = file("${path.module}/iam/trust.json")
   inline_policy {
     name = "SchedulerPolicy" 
     policy = data.aws_iam_policy_document.scheduler_role.json
