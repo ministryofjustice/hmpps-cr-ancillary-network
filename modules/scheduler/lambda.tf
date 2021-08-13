@@ -3,9 +3,6 @@ resource "aws_lambda_function" "aws_scheduler_function" {
   description   = "schedule EC2 and RDS instances"
   s3_bucket     = "solutions-${data.aws_region.current.name}"
   s3_key        = "aws-instance-scheduler/v1.4.0/instance-scheduler.zip"
-  dead_letter_config {
-    target_arn = aws_sns_topic.aws_scheduler.arn
-  }
   handler = "main.lambda_handler"
   runtime = "python3.8"
   timeout = 900
