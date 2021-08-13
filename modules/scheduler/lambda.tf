@@ -4,7 +4,7 @@ resource "aws_lambda_function" "aws_scheduler_function" {
   s3_bucket     = "solutions-${data.aws_region.current.name}"
   s3_key        = "aws-instance-scheduler/v1.4.0/instance-scheduler.zip"
   dead_letter_config {
-    target_arn = var.deadletter
+    target_arn = aws_sns_topic.aws_scheduler.arn
   }
   handler = "main.lambda_handler"
   runtime = "python3.8"
