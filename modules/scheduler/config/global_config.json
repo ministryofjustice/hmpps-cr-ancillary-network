@@ -3,7 +3,7 @@
     "default_timezone": {"S": "Europe/London"},
     "enable_SSM_maintenance_windows": {"BOOL": false},
     "name": {"S": "scheduler"},
-    "regions": {"SS": ["eu-west-2","eu-west-1"]},
+    "regions": {"SS": ["eu-west-1","eu-west-2"]},
     "schedule_clusters": {"BOOL": true},
     "schedule_lambda_account": {"BOOL": true},
     "scheduled_services": {"SS": ["ec2","rds"]},
