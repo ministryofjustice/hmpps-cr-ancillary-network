@@ -84,7 +84,7 @@ resource "aws_dynamodb_table_item" "global_config" {
   table_name = aws_dynamodb_table.config_table.name
   hash_key   = aws_dynamodb_table.config_table.hash_key
   range_key  = aws_dynamodb_table.config_table.range_key
-  item = file("./config/scheduler.json")
+  item = file("${path.module}/config/global_config.json")
 }
 
 # Scheduler time 7:00 - 18:00
@@ -92,7 +92,7 @@ resource "aws_dynamodb_table_item" "period" {
   table_name = aws_dynamodb_table.config_table.name
   hash_key   = aws_dynamodb_table.config_table.hash_key
   range_key  = aws_dynamodb_table.config_table.range_key
-  item = file("./config/period.json")
+  item = file("${path.module}/config/period.json")
 }
 
 # Tag "Key=Schedule,Value=office-hours"
@@ -100,5 +100,5 @@ resource "aws_dynamodb_table_item" "schedule" {
   table_name = aws_dynamodb_table.config_table.name
   hash_key   = aws_dynamodb_table.config_table.hash_key
   range_key  = aws_dynamodb_table.config_table.range_key
-  item = file("./config/scheduler.json")
+  item = file("${path.module}/config/scheduler.json")
 }
