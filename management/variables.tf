@@ -86,7 +86,7 @@ variable "rate_schedule_expression" {
 
 variable "calender_content_doc" {
   description = "File for calendar ssm document"
-  default     = "file://files/default_calendar_content"
+  default     = "file://files/calendar_content"
 }
 
 variable "create_autostop_instance" {
