@@ -89,10 +89,6 @@ variable "calender_content_doc" {
   default     = "file://files/calendar_contents"
 }
 
-variable "create_autostop_instance" {
-  default = "false"
-}
-
 variable "stop_cloudwatch_notification_schedule_expression" {
   description = "Notify an hour before stopping instance"
   default     = "cron(00 17 ? * MON-FRI *)"
