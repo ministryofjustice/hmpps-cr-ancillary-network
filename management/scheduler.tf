@@ -9,7 +9,6 @@ module "calendar" {
   calender_content_doc = var.calender_content_doc
 }
 
-/*
 # Start instances in a staggered order
 module "ec2-start-phase1" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/lambda-scheduler-stop-start?ref=terraform-0.12"
@@ -75,4 +74,3 @@ module "ec2-stop-phase2" {
     value = var.stop_resources_tag_phase2
   }
 }
-*/

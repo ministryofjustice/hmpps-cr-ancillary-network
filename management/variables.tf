@@ -50,7 +50,7 @@ variable "rds_schedule" {
 
 variable "autoscaling_schedule" {
   description = "Enable or disable auto start/stop of ASG"
-  default     = "true"
+  default     = "false"
 }
 
 variable "stop_resources_tag_phase1" {
@@ -60,7 +60,7 @@ variable "stop_resources_tag_phase1" {
 
 variable "stop_resources_tag_phase2" {
   description = "Autostop tag value used by lambda to stop instances"
-  default     = "True"
+  default     = "Phase2"
 }
 
 variable "start_resources_tag_phase1" {
@@ -70,7 +70,7 @@ variable "start_resources_tag_phase1" {
 
 variable "start_resources_tag_phase2" {
   description = "Autostop tag value used by lambda to start instances"
-  default     = "True"
+  default     = "Phase2"
 }
 
 variable "calendar_rule_enabled" {
