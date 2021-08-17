@@ -109,3 +109,8 @@ variable "autostop_notification_enable" {
   type        = string
   default     = "false"
 }
+
+variable "tagged_user" {
+  description = "Users to be tagged in alerts"
+  default     = ""
+}
