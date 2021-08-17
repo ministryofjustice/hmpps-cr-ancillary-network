@@ -1,7 +1,7 @@
 # SSM Calendar to schedule instance availability
 module "calendar" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/calendar?ref=terraform-0.12"
-  environment_name     = local.environment_name
+  environment_name     = var.environment_name
   tags                 = var.tags
   region               = var.region
   is_enabled           = var.autostop_enable
@@ -12,13 +12,13 @@ module "calendar" {
 # Start instances in a staggered order
 module "ec2-start-phase1" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/lambda-scheduler-stop-start?ref=terraform-0.12"
-  name                 = "${local.environment_name}-start-ec2-phase1"
+  name                 = "${var.environment_name}-start-ec2-phase1"
   schedule_action      = var.schedule_start_action
   spot_schedule        = var.spot_schedule
   ec2_schedule         = var.ec2_schedule
   rds_schedule         = var.rds_schedule
   autoscaling_schedule = var.autoscaling_schedule
-  environment_name     = local.environment_name
+  environment_name     = var.environment_name
 
   resources_tag = {
     key   = "autostop"
@@ -28,13 +28,13 @@ module "ec2-start-phase1" {
 
 module "ec2-start-phase2" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/lambda-scheduler-stop-start?ref=terraform-0.12"
-  name                 = "${local.environment_name}-start-ec2-phase2"
+  name                 = "${var.environment_name}-start-ec2-phase2"
   schedule_action      = var.schedule_start_action
   spot_schedule        = var.spot_schedule
   ec2_schedule         = var.ec2_schedule
   rds_schedule         = var.rds_schedule
   autoscaling_schedule = var.autoscaling_schedule
-  environment_name     = local.environment_name
+  environment_name     = var.environment_name
 
   resources_tag = {
     key   = "autostop"
@@ -45,13 +45,13 @@ module "ec2-start-phase2" {
 # Stop instances in a staggered order
 module "ec2-stop-phase1" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/lambda-scheduler-stop-start?ref=terraform-0.12"
-  name                 = "${local.environment_name}-stop-ec2-phase1"
+  name                 = "${var.environment_name}-stop-ec2-phase1"
   schedule_action      = var.schedule_stop_action
   spot_schedule        = var.spot_schedule
   ec2_schedule         = var.ec2_schedule
   rds_schedule         = var.rds_schedule
   autoscaling_schedule = var.autoscaling_schedule
-  environment_name     = local.environment_name
+  environment_name     = var.environment_name
 
   resources_tag = {
     key   = "autostop"
@@ -61,13 +61,13 @@ module "ec2-stop-phase1" {
 
 module "ec2-stop-phase2" {
   source               = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/lambda-scheduler-stop-start?ref=terraform-0.12"
-  name                 = "${local.environment_name}-stop-ec2-phase2"
+  name                 = "${var.environment_name}-stop-ec2-phase2"
   schedule_action      = var.schedule_stop_action
   spot_schedule        = var.spot_schedule
   ec2_schedule         = var.ec2_schedule
   rds_schedule         = var.rds_schedule
   autoscaling_schedule = var.autoscaling_schedule
-  environment_name     = local.environment_name
+  environment_name     = var.environment_name
 
   resources_tag = {
     key   = "autostop"
@@ -78,7 +78,7 @@ module "ec2-stop-phase2" {
 # Notify in slack that instance will go down in 60mins
 module "autostop-notify" {
   source                         = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/auto-stop-notify?ref=terraform-0.12"
-  name                           = local.environment_name
+  name                           = var.environment_name
   cloudwatch_schedule_expression = var.stop_cloudwatch_notification_schedule_expression
   event_rule_enabled             = var.autostop_notification_enable
   channel                        = var.channel

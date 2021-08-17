@@ -96,7 +96,7 @@ variable "stop_cloudwatch_notification_schedule_expression" {
 
 variable "channel" {
   description = "Slack channel to send notification"
-  default     = "cr-auto-stop-alerts" //Channel dosnt exists 
+  default     = "cr-auto-stop-alerts" //Channel dosnt exists just default value
 }
 
 variable "url_path" {
