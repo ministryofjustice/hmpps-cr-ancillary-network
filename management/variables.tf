@@ -73,8 +73,8 @@ variable "start_resources_tag_phase2" {
   default     = "Phase2"
 }
 
-variable "calendar_rule_enabled" {
-  description = "Whether the Calendar rule should be enabled"
+variable "autostop_enable" {
+  description = "Whether the autostop should be enabled"
   type        = string
   default     = "false"
 }
@@ -91,4 +91,25 @@ variable "calender_content_doc" {
 
 variable "create_autostop_instance" {
   default = "false"
+}
+
+variable "stop_cloudwatch_notification_schedule_expression" {
+  description = "Notify an hour before stopping instance"
+  default     = "cron(00 17 ? * MON-FRI *)"
+}
+
+variable "channel" {
+  description = "Slack channel to send notification"
+  default     = "cr-auto-stop-alerts" //Channel dosnt exists 
+}
+
+variable "url_path" {
+  description = "Slack url path"
+  default     = "/services/T02DYEB3A/BV9QTA87R/yVTFtXhOUVY1WPbvgcwpok4q"
+}
+
+variable "autostop_notification_enable" {
+  description = "Whether the notification rule should be enabled"
+  type        = string
+  default     = "false"
 }

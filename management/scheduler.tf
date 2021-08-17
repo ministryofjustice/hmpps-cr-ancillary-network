@@ -4,7 +4,7 @@ module "calendar" {
   environment_name     = local.environment_name
   tags                 = var.tags
   region               = var.region
-  is_enabled           = var.calendar_rule_enabled
+  is_enabled           = var.autostop_enable
   schedule_expression  = var.rate_schedule_expression
   calender_content_doc = var.calender_content_doc
 }
@@ -73,4 +73,15 @@ module "ec2-stop-phase2" {
     key   = "autostop"
     value = var.stop_resources_tag_phase2
   }
+}
+
+# Notify in slack that instance will go down in 60mins
+module "autostop-notify" {
+  source                         = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/auto-stop-notify?ref=terraform-0.12"
+  name                           = local.environment_name
+  cloudwatch_schedule_expression = var.stop_cloudwatch_notification_schedule_expression
+  event_rule_enabled             = var.autostop_notification_enable
+  channel                        = var.channel
+  url_path                       = var.url_path
+  tagged_user                    = var.tagged_user
 }
