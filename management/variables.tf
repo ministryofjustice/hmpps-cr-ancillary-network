@@ -86,7 +86,7 @@ variable "rate_schedule_expression" {
 
 variable "calender_content_doc" {
   description = "File for calendar ssm document"
-  default     = "file://files/calendar_contents"
+  default     = "file://files/calendar_content"
 }
 
 variable "stop_cloudwatch_notification_schedule_expression" {
