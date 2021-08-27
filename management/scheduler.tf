@@ -74,14 +74,3 @@ module "ec2-stop-phase2" {
     value = var.stop_resources_tag_phase2
   }
 }
-
-# Notify in slack that instance will go down in 60mins
-module "autostop-notify" {
-  source                         = "git::https://github.com/ministryofjustice/hmpps-terraform-modules.git//modules/auto-start/auto-stop-notify?ref=terraform-0.12"
-  name                           = var.environment_name
-  cloudwatch_schedule_expression = var.stop_cloudwatch_notification_schedule_expression
-  event_rule_enabled             = var.autostop_notification_enable
-  channel                        = var.channel
-  url_path                       = var.url_path
-  tagged_user                    = var.tagged_user
-}
