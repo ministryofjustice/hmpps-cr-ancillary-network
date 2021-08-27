@@ -89,11 +89,6 @@ variable "calender_content_doc" {
   default     = "file://files/calendar_content"
 }
 
-variable "stop_cloudwatch_notification_schedule_expression" {
-  description = "Notify an hour before stopping instance"
-  default     = "cron(00 17 ? * MON-FRI *)"
-}
-
 variable "channel" {
   description = "Slack channel to send notification"
   default     = "cr-auto-stop-alerts" //Channel dosnt exists just default value
@@ -113,4 +108,20 @@ variable "autostop_notification_enable" {
 variable "tagged_user" {
   description = "Users to be tagged in alerts"
   default     = ""
+}
+
+variable "autostartstop_notification_enable" {
+  description = "Whether the notification rule should be enabled"
+  type        = string
+  default     = "false"
+}
+
+variable "start_cloudwatch_notification_schedule_expression" {
+  description = "Notify an hour before stopping instance"
+  default     = "cron(00 05 ? * MON-FRI *)"
+}
+
+variable "stop_cloudwatch_notification_schedule_expression" {
+  description = "Notify an hour before stopping instance"
+  default     = "cron(00 17 ? * MON-FRI *)"
 }
