@@ -23,8 +23,8 @@ resource "aws_cloudwatch_event_rule" "auto-stop-scheduler-notification" {
 }
 
 resource "aws_cloudwatch_event_target" "auto-stop-scheduler-notification" {
-  arn  = data.aws_lambda_function.auto-startstop-scheduler-notification.arn
-  rule = aws_cloudwatch_event_rule.auto-stop-scheduler-notification.name
+  arn   = data.aws_lambda_function.auto-startstop-scheduler-notification.arn
+  rule  = aws_cloudwatch_event_rule.auto-stop-scheduler-notification.name
   input = "{\"action\": \"stop\"}"
 }
 
@@ -45,8 +45,8 @@ resource "aws_cloudwatch_event_rule" "auto-start-scheduler-notification" {
 }
 
 resource "aws_cloudwatch_event_target" "auto-start-scheduler-notification" {
-  arn  = data.aws_lambda_function.auto-startstop-scheduler-notification.arn
-  rule = aws_cloudwatch_event_rule.auto-start-scheduler-notification.name
+  arn   = data.aws_lambda_function.auto-startstop-scheduler-notification.arn
+  rule  = aws_cloudwatch_event_rule.auto-start-scheduler-notification.name
   input = "{\"action\": \"start\"}"
 }
 
