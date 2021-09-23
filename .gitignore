@@ -74,3 +74,4 @@ docker-run.sh
 docker-compose.yml
 run.sh
 .zip
+**.zip

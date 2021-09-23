@@ -22,7 +22,7 @@ module "ec2-start-phase1" {
 
   resources_tag = {
     key   = "autostop"
-    value = var.start_resources_tag_phase1
+    value = var.rds_stop_resources_tag_phase1
   }
 }
 
@@ -38,7 +38,7 @@ module "ec2-start-phase2" {
 
   resources_tag = {
     key   = "autostop"
-    value = var.start_resources_tag_phase2
+    value = var.asg_stop_resources_tag_phase2
   }
 }
 
@@ -55,7 +55,7 @@ module "ec2-stop-phase1" {
 
   resources_tag = {
     key   = "autostop"
-    value = var.stop_resources_tag_phase1
+    value = var.rds_stop_resources_tag_phase1
   }
 }
 
@@ -71,6 +71,6 @@ module "ec2-stop-phase2" {
 
   resources_tag = {
     key   = "autostop"
-    value = var.stop_resources_tag_phase2
+    value = var.asg_stop_resources_tag_phase2
   }
 }

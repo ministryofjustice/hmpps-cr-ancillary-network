@@ -53,24 +53,14 @@ variable "autoscaling_schedule" {
   default     = "false"
 }
 
-variable "stop_resources_tag_phase1" {
+variable "rds_stop_resources_tag_phase1" {
   description = "Autostop tag value used by lambda to stop instances"
   default     = "Phase1"
 }
 
-variable "stop_resources_tag_phase2" {
+variable "asg_stop_resources_tag_phase2" {
   description = "Autostop tag value used by lambda to stop instances"
-  default     = "Phase2"
-}
-
-variable "start_resources_tag_phase1" {
-  description = "Autostop tag value used by lambda to start instances"
   default     = "Phase1"
-}
-
-variable "start_resources_tag_phase2" {
-  description = "Autostop tag value used by lambda to start instances"
-  default     = "Phase2"
 }
 
 variable "autostop_enable" {
