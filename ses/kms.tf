@@ -1,3 +1,4 @@
+# To fix
 resource "aws_kms_key" "ses_key" {
   description             = "Engineering SES Encryption Key"
   deletion_window_in_days = 30
@@ -11,6 +12,6 @@ resource "aws_kms_key" "ses_key" {
 }
 
 resource "aws_kms_alias" "ses_key_alias" {
-  name          = "alias/ses-kms-key"
+  name          = "alias/${local.kms_alias}"
   target_key_id = aws_kms_key.ses_key.key_id
 }

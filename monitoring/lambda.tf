@@ -12,7 +12,7 @@ resource "aws_lambda_function" "notify_slack_alarm" {
       ENVIRONMENT_NAME        = var.environment_name
       QUIET_PERIOD_START_HOUR = tostring(local.alarms_config.quiet_hours[0])
       QUIET_PERIOD_END_HOUR   = tostring(local.alarms_config.quiet_hours[1])
-      SLACK_CHANNEL           = local.slack_channel_name
+      SLACK_CHANNEL           = var.channel
       SLACK_TOKEN             = "/${var.environment_name}/slack/token"
     }
   }

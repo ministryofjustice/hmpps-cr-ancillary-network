@@ -33,3 +33,8 @@ variable "alarms_config" {
     quiet_hours = [23, 6]
   }
 }
+
+variable "channel" {
+  description = "Slack channel to send notification"
+  default     = "cr-auto-stop-alerts" //Channel dosnt exists just default value
+}
