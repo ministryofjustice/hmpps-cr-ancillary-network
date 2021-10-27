@@ -12,6 +12,9 @@ module "autostop-notify" {
 # Notification Lambda details
 data "aws_lambda_function" "auto-startstop-scheduler-notification" {
   function_name = "${var.environment_name}-auto-stop-notification"
+  depends_on = [
+    module.autostop-notify,
+  ]
 }
 
 # Cloudwatch Stop event
