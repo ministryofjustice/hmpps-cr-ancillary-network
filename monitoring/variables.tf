@@ -36,5 +36,5 @@ variable "alarms_config" {
 
 variable "channel" {
   description = "Slack channel to send notification"
-  default     = "cr-auto-stop-alerts" //Channel dosnt exists just default value
+  default     = "cr-auto-stop-alerts" //Channel doesn't exist, that's just a default value
 }

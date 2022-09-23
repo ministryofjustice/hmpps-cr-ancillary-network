@@ -1,7 +1,7 @@
 provider "aws" {
   alias   = "delius_prod_acct_r53_delegation"
   region  = var.region
-  version = "~> 3.33.0"
+  version = "~> 3.75.2"
 
   # Role in delius prod account for managing R53 NS delegation records
   assume_role {

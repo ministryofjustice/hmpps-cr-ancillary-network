@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "notify_slack_alarm" {
-  runtime          = "nodejs12.x"
+  runtime          = "nodejs16.x"
   role             = aws_iam_role.lambda_role.arn
   filename         = data.archive_file.alarm_lambda_handler_zip.output_path
   function_name    = local.lambda_name_alarm
