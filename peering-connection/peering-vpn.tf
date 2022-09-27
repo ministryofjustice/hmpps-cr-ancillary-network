@@ -3,7 +3,7 @@
 ## and update the routes). 
 ## Not something that we want so commenting it out and keeping it for reference only.
 
-# VPN VPC PEER CONNECTION
+#   VPN VPC PEER CONNECTION
 #
 #resource "aws_vpc_peering_connection" "peering-vpn-vpc" {
 #  peer_owner_id = data.terraform_remote_state.vpn.outputs.vpc.account_id
