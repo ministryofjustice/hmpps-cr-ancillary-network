@@ -1,6 +1,7 @@
 ## Tests implemented by AdRoc in dev environments only (not in any other higher 
 ## environments) so removing the resources in dev and keeping the code for reference only
 #
+#
 ## Fetch local context, e.g. current account id for arn strings
 #data "aws_caller_identity" "current" {
 #}

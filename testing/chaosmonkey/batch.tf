@@ -1,6 +1,7 @@
 ## Tests implemented by AdRoc in dev environments only (not in any other higher 
 ## environments) so removing the resources in dev and keeping the code for reference only
 #
+#
 ## Create a dedicated security group with no ingress for the batch compute environment
 ## Requires egress for pulling images from container registry and connection to endpoints
 #resource "aws_security_group" "ce_sg" {

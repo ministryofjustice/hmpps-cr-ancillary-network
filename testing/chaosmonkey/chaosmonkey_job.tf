@@ -1,6 +1,7 @@
 ## Tests implemented by AdRoc in dev environments only (not in any other higher 
 ## environments) so removing the resources in dev and keeping the code for reference only
 #
+#
 ## Create Chaosmonkey specific AWS Batch Job Definition
 #data "template_file" "chaosmonkey_job_template" {
 #  template = file("./templates/batch_jobs/chaosmonkey.tpl")
