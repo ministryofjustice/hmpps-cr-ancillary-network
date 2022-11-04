@@ -17,10 +17,10 @@ env_configs
 ├── common
 │   ├── common.properties
 │   └── common.tfvars
-└── cr-jira-dev
-    ├── cr-jira-dev.credentials.yml
-    ├── cr-jira-dev.properties
-    └── cr-jira-dev.tfvars
+└── cr-jira-prod
+    ├── cr-jira-prod.credentials.yml
+    ├── cr-jira-prod.properties
+    └── cr-jira-prod.tfvars
 ```
 
 An example method of obtaining the configs would be:
