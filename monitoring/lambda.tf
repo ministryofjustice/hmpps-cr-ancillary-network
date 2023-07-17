@@ -7,7 +7,7 @@ resource "aws_lambda_function" "notify_slack_alarm" {
   source_code_hash = filebase64sha256(data.archive_file.alarm_lambda_handler_zip.output_path)
   environment {
     variables = {
-      ENABLED                 = tostring(local.alarms_config.enabled)
+      ENABLED                 = var.environment_name == "cr-jitbit-training" ? "false" : (local.alarms_config.enabled)
       REGION                  = var.region
       ENVIRONMENT_NAME        = var.environment_name
       QUIET_PERIOD_START_HOUR = tostring(local.alarms_config.quiet_hours[0])
